@@ -54,7 +54,7 @@ afterEvaluate {
             create<MavenPublication>("plugin") {
                 groupId = "com.ryan7.dexObfuscator"
                 artifactId = "plugin"
-                version = "1.0.1"
+                version = "1.0.3"
                 from(components["java"])
             }
         }
