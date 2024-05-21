@@ -31,20 +31,33 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 }
 
 
-publishing {
-    repositories {
-        maven {
-            name = "MavenLocalRepo"
-            url = uri("file://\$buildDir/repo")
-            url = uri("file://${buildDir}/repo")
-        }
-    }
-    publications {
-        create<MavenPublication>("plugin") {
-            groupId = "com.ryan7.dexObfuscator"
-            artifactId = "plugin"
-            version = "1.0.0"
-            from(components["java"])
+//publishing {
+//    repositories {
+//        maven {
+//            name = "MavenLocalRepo"
+//            url = uri("file://\$buildDir/repo")
+//            url = uri("file://${buildDir}/repo")
+//        }
+//    }
+//    publications {
+//        create<MavenPublication>("plugin") {
+//            groupId = "com.ryan7.dexObfuscator"
+//            artifactId = "plugin"
+//            version = "1.0.0"
+//            from(components["java"])
+//        }
+//    }
+//}
+afterEvaluate {
+    publishing{
+
+        publications {
+            create<MavenPublication>("plugin") {
+                groupId = "com.ryan7.dexObfuscator"
+                artifactId = "plugin"
+                version = "1.0.1"
+                from(components["java"])
+            }
         }
     }
 }
