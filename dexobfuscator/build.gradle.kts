@@ -1,23 +1,22 @@
-import org.gradle.kotlin.dsl.support.kotlinCompilerOptions
-import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.targets
 
 plugins {
     id("java-library")
-    alias(libs.plugins.jetbrains.kotlin.jvm)
+//    alias(libs.plugins.jetbrains.kotlin.jvm)
     id("groovy")
+    id("org.jetbrains.kotlin.jvm")
     id("maven-publish")
 
 }
 
 dependencies {
-    implementation(libs.gradle)
-    implementation(libs.transform.api)
-    implementation(libs.commons.io)
+    implementation("com.android.tools.build:transform-api:1.5.0")
+    implementation("commons-io:commons-io:2.13.0")
     //gradle sdk
     implementation(gradleApi())
     //groovy sdk
     implementation(localGroovy())
-    implementation(libs.dex.tools)
+    implementation("com.android.tools.build:gradle:7.2.2")
+    implementation("com.github.Ryan7L.BlackObfuscator:dex-tools:v3.1")
 }
 
 java {
